@@ -10,6 +10,8 @@ import { routing }        from './app.routing';
 import { AuthGuard } from './guard/auth.guard';
 import { UserService } from './services/userservice';
 import { HomeComponent } from './components/home.component';
+import { HeaderComponent } from './components/header.component';
+import { FooterComponent } from './components/footer.component';
 
 @NgModule({
     imports: [
@@ -20,6 +22,8 @@ import { HomeComponent } from './components/home.component';
     ],
     declarations: [
         AppComponent,
+        HeaderComponent,
+        FooterComponent,
         HomeComponent
     ],
     providers: [
