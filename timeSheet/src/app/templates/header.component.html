@@ -1,9 +1,11 @@
+<header>
+<div style="background-color: skyblue;">
 <nav class="navbar navbar-light">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">conduit</a>
+    <a class="navbar-brand" routerLink="/">HCL</a>
 
     <!-- Show this for logged out users -->
-    <ul *showAuthed="false"
+    <ul *ngIf="!currentUser.authToken"
       class="nav navbar-nav pull-xs-right">
 
       <li class="nav-item">
@@ -32,7 +34,7 @@
     </ul>
 
     <!-- Show this for logged in users -->
-    <ul *showAuthed="true"
+    <ul *ngIf="currentUser.authToken"
       class="nav navbar-nav pull-xs-right">
 
       <li class="nav-item">
@@ -73,3 +75,5 @@
 
   </div>
 </nav>
+</div>
+</header>

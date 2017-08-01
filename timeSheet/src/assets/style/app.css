@@ -63,3 +63,8 @@ a {
     98.5% { left:-105%; }
     100%  { left:-5%; }
 }
+
+.c-wrapper{
+    margin: auto;
+    width: 60%;
+}

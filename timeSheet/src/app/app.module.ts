@@ -12,6 +12,7 @@ import { UserService } from './services/userservice';
 import { HomeComponent } from './components/home.component';
 import { HeaderComponent } from './components/header.component';
 import { FooterComponent } from './components/footer.component';
+import { LoginComponent } from './components/login.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/footer.component';
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        HomeComponent
+        HomeComponent,
+        LoginComponent
     ],
     providers: [
         AuthGuard,
