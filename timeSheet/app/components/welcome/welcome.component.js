@@ -10,18 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var HomeComponent = (function () {
-    function HomeComponent() {
+var router_1 = require("@angular/router");
+var WelcomeComponent = (function () {
+    function WelcomeComponent(router) {
+        this.router = router;
+        this.user = {};
     }
-    HomeComponent.prototype.ngOnInit = function () { };
-    HomeComponent = __decorate([
+    WelcomeComponent.prototype.ngOnInit = function () {
+        this.user = JSON.parse(localStorage.getItem('currentUser'));
+        console.log("test", this.user);
+    };
+    WelcomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: '../../templates/home/home.template.html'
+            templateUrl: '../../templates/welcome/welcome.template.html'
         }),
-        __metadata("design:paramtypes", [])
-    ], HomeComponent);
-    return HomeComponent;
+        __metadata("design:paramtypes", [router_1.Router])
+    ], WelcomeComponent);
+    return WelcomeComponent;
 }());
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+exports.WelcomeComponent = WelcomeComponent;
+//# sourceMappingURL=welcome.component.js.map

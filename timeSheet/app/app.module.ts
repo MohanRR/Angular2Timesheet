@@ -13,10 +13,14 @@ import { routing }        from './app.routing';
 
 //import { AlertComponent } from './_directives/index';
 //import { AuthGuard } from './_guards/index';
-//import { AlertService, AuthenticationService, UserService } from './_services/index';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/common/header.component';
 import { FooterComponent } from './components/common/footer.component';
+import { AlertComponent } from './components/common/alert.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+
+import { UserService } from './services/user.service';
+import { AlertService } from './services/alert.service';
 //import { LoginComponent } from './login/index';
 //import { RegisterComponent } from './register/index';
 
@@ -29,19 +33,19 @@ import { FooterComponent } from './components/common/footer.component';
     ],
     declarations: [
         AppComponent,
-        // AlertComponent,
-         HomeComponent,
-         HeaderComponent,
-         FooterComponent
+        AlertComponent,
+        HomeComponent,
+        HeaderComponent,
+        FooterComponent,
+        WelcomeComponent
         // LoginComponent,
         // RegisterComponent
     ],
     providers: [
         // AuthGuard,
-        // AlertService,
         // AuthenticationService,
-        // UserService,
-
+        UserService,
+        AlertService,
         // // providers used to create fake backend
         // fakeBackendProvider,
         MockBackend,

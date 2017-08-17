@@ -18,10 +18,13 @@ var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 //import { AlertComponent } from './_directives/index';
 //import { AuthGuard } from './_guards/index';
-//import { AlertService, AuthenticationService, UserService } from './_services/index';
 var home_component_1 = require("./components/home/home.component");
 var header_component_1 = require("./components/common/header.component");
 var footer_component_1 = require("./components/common/footer.component");
+var alert_component_1 = require("./components/common/alert.component");
+var welcome_component_1 = require("./components/welcome/welcome.component");
+var user_service_1 = require("./services/user.service");
+var alert_service_1 = require("./services/alert.service");
 //import { LoginComponent } from './login/index';
 //import { RegisterComponent } from './register/index';
 var AppModule = (function () {
@@ -37,18 +40,19 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                // AlertComponent,
+                alert_component_1.AlertComponent,
                 home_component_1.HomeComponent,
                 header_component_1.HeaderComponent,
-                footer_component_1.FooterComponent
+                footer_component_1.FooterComponent,
+                welcome_component_1.WelcomeComponent
                 // LoginComponent,
                 // RegisterComponent
             ],
             providers: [
                 // AuthGuard,
-                // AlertService,
                 // AuthenticationService,
-                // UserService,
+                user_service_1.UserService,
+                alert_service_1.AlertService,
                 // // providers used to create fake backend
                 // fakeBackendProvider,
                 testing_1.MockBackend,

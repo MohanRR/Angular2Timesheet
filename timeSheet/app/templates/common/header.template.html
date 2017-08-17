@@ -1,24 +1,116 @@
-<header class="banner navbar navbar-fixed-top" role="banner">
-  <div class="navbar-inner">
+<div *ngIf="!isLoggedIn">
+<nav class="navbar navbar-inverse navbar-static-top example6">
     <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="https://www.meetingresult.com/">
-        <img src="https://www.meetingresult.com/assets/img/logo.png" alt="MeetingResult" class="logo"><span id="name-wrap"><span id="name">TimeSheet</span></span> 
-      </a>
-      <nav class="nav-main nav-collapse collapse pull-right" role="navigation">
-        <ul id="menu-main" class="nav"><li class="menu-software"><a href="https://www.meetingresult.com/web/">Software</a></li>
-<li class="menu-pricing"><a href="https://www.meetingresult.com/sign-up/">Pricing</a></li>
-<li class="menu-resources"><a href="https://www.meetingresult.com/resources/">Resources</a></li>
-<li class="menu-support"><a href="http://meetingresult.zendesk.com/">Support</a></li>
-<li class="menu-blog"><a href="https://www.meetingresult.com/blog/">Blog</a></li>
-<li class="menu-about"><a href="https://www.meetingresult.com/about/">About</a></li>
-<li class="nav-signup menu-sign-up"><a href="http://www.meetingresult.com/sign-up">Sign Up</a></li>
-<li class="nav-login menu-log-in"><a href="http://cloud.meetingresult.com/login">Log in</a></li>
-</ul>      </nav>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#testmo" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a rel="nofollow" class="navbar-brand text-hide" href="http://disputebills.com">Brand Text
+        </a>
+      </div>
+      <div id="testmo" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a rel="nofollow" href="#">Home</a></li>
+          <li><a rel="nofollow" href="#">About</a></li>
+          <li><a rel="nofollow" href="#">Contact</a></li>
+          <li><a data-toggle="modal" data-target="#loginModal" rel="nofollow" href="#">Login</a></li>
+          <li class="dropdown">
+            <a rel="nofollow" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Register<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a (click)="register.registerType='company'"data-toggle="modal" data-target="#registerModal" rel="nofollow" href="#">Company</a></li>
+              <li><a (click)="register.registerType='freelancer'"data-toggle="modal" data-target="#registerModal" rel="nofollow" href="#">Freelancer</a></li>
+              <!--<li><a rel="nofollow" href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a rel="nofollow" href="#">Separated link</a></li>
+              <li><a rel="nofollow" href="#">One more separated link</a></li>-->
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+</div>
+
+<div *ngIf="isLoggedIn">
+<nav class="navbar navbar-inverse navbar-static-top example6">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#testmo" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a rel="nofollow" class="navbar-brand text-hide" href="http://disputebills.com">Brand Text
+        </a>
+      </div>
+      <div id="testmo" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a rel="nofollow" href="/Home">Home</a></li>
+          <li><a rel="nofollow" href="#">Logout</a></li>
+          <li><a rel="nofollow" href="#">Timesheet</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+</div>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog center-logmodal">
+      <div class="login-form">
+        <div class="login-top">
+            <h1 class="login-header">SIGN IN</h1>
+            <form (ngSubmit)="login()">
+                <input type="text" id="user-name" name="email" [(ngModel)]="user.email" />
+                <label for="user-name" class="input-prefix">Email</label>
+                
+                <input type="password" id="password" name="password" [(ngModel)]="user.password"  />
+                <label for="password" class="input-prefix">Password</label>
+                
+                <input class="btn_submit" type="submit" id="sign-in" name="Sign-in" value="Sign in" />
+                <input #cancelLog class="btn_cancel" (click)="this.user={}" data-dismiss="modal" type="button" id="cancel" name="regcancel" value="Cancel" />
+            </form>
+        </div>
+        <div class="login-bottom">
+            <a href="#" class="forgot-password">Forgot your password?</a>
+        </div>
     </div>
   </div>
-</header>
+</div>
+
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog center-regmodal">
+      <div class="login-form">
+        <div class="login-top">
+            <h1 class="login-header">Registeration</h1>
+            <form #registerForm="ngForm" (ngSubmit)="registerUser()">
+                <input type="hidden" name="registerType" [(ngModel)]="register.registerType"/>
+                <input type="text" id="email" name="email" [(ngModel)]="register.email" />
+                <label for="emil" class="input-prefix">Email</label>
+                <input type="password" id="password" name="password" [(ngModel)]="register.password" />
+                <label for="password" class="input-prefix">Password</label>
+                <input type="text" id="firstName" name="firstName" [(ngModel)]="register.firstName" />
+                <label for="first-name" class="input-prefix">First Name</label>
+                <input type="text" id="lastName" name="lastName" [(ngModel)]="register.lastName" />
+                <label for="lastName" class="input-prefix">Last Name</label>
+                <input type="text" id="company" name="company" [(ngModel)]="register.company" />
+                <label for="company" class="input-prefix">Company</label>
+                <input class="btn_submit" type="submit" id="register" name="Sign-in" value="Register" />
+                <input #cancelReg class="btn_cancel" (click)="this.register={}" data-dismiss="modal" type="button" id="cancel" name="regcancel" value="Cancel" />
+            </form>
+        </div>
+        <div class="login-bottom">
+            <a href="#" class="forgot-password" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Login</a>
+        </div>
+    </div>
+  </div>
+</div>
