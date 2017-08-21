@@ -22,6 +22,11 @@ var AlertComponent = (function () {
     AlertComponent.prototype.hide = function () {
         this.message = null;
     };
+    AlertComponent.prototype.hideModal = function () {
+        var _this = this;
+        console.log("alert component modal method");
+        setTimeout(function () { _this.closeAlert.nativeElement.click(); }, 10000);
+    };
     AlertComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

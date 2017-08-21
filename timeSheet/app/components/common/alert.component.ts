@@ -20,4 +20,10 @@ export class AlertComponent {
     hide() {
         this.message = null;
     }
+
+    hideModal() {
+        console.log("alert component modal method");
+        setTimeout(()=>{ this.closeAlert.nativeElement.click(); },10000);
+    }
+
 }

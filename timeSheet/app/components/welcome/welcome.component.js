@@ -17,6 +17,7 @@ var WelcomeComponent = (function () {
         this.user = {};
     }
     WelcomeComponent.prototype.ngOnInit = function () {
+        $('table').DataTable({ "lengthChange": false });
         this.user = JSON.parse(localStorage.getItem('currentUser'));
         console.log("test", this.user);
     };

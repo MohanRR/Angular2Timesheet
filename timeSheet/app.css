@@ -306,3 +306,39 @@ margin-top: -24.4% !important;
 }
 }
 
+.modal.fade{
+  opacity:1;
+}
+.modal.fade .modal-dialog {
+   -webkit-transform: translate(0);
+   -moz-transform: translate(0);
+   transform: translate(0);
+}
+
+/*Data table*/
+table caption {
+	padding: .5em 0;
+}
+
+table.dataTable th,
+table.dataTable td {
+  white-space: nowrap;
+}
+
+.widh100per{
+    width:100% ! important;
+}
+
+.bg-color{
+    background-color: #555;
+    color: #fff;
+}
+
+.btn-round{
+    border-radius: 25px;
+}
+
+.dataTables_filter{
+    float: left! important;
+}
+
